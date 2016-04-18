@@ -21,19 +21,26 @@
 			remoteGlobalIDString = B60924FF1C941F7E0093DBAA;
 			remoteInfo = SlimaneSessionRedisStore;
 		};
-		B613CEAF1C94651C00F7122E /* PBXContainerItemProxy */ = {
+		B6DC3AB21CC565B500337B07 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = B613CEAA1C94651C00F7122E /* SwiftRedis.xcodeproj */;
+			containerPortal = B6DC3AAD1CC565B400337B07 /* SwiftRedis.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = B666D4541C91CE8300529C06;
 			remoteInfo = SwiftRedis;
 		};
-		B613CEB11C94651C00F7122E /* PBXContainerItemProxy */ = {
+		B6DC3AB41CC565B500337B07 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = B613CEAA1C94651C00F7122E /* SwiftRedis.xcodeproj */;
+			containerPortal = B6DC3AAD1CC565B400337B07 /* SwiftRedis.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = B666D45E1C91CE8300529C06;
 			remoteInfo = SwiftRedisTests;
+		};
+		B6DC3AB61CC565B800337B07 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B6DC3AAD1CC565B400337B07 /* SwiftRedis.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = B666D4531C91CE8300529C06;
+			remoteInfo = SwiftRedis;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -45,7 +52,7 @@
 		B609250F1C941F7E0093DBAA /* SlimaneSessionRedisStoreTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlimaneSessionRedisStoreTests.swift; sourceTree = "<group>"; };
 		B60925111C941F7E0093DBAA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B60925261C9420880093DBAA /* RedisStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RedisStore.swift; sourceTree = "<group>"; };
-		B613CEAA1C94651C00F7122E /* SwiftRedis.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SwiftRedis.xcodeproj; path = "../swift-redis/Xcode/SwiftRedis.xcodeproj"; sourceTree = "<group>"; };
+		B6DC3AAD1CC565B400337B07 /* SwiftRedis.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SwiftRedis.xcodeproj; path = "../../swift-redis/Xcode/SwiftRedis.xcodeproj"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,7 +77,7 @@
 		B60924F61C941F7E0093DBAA = {
 			isa = PBXGroup;
 			children = (
-				B613CEAA1C94651C00F7122E /* SwiftRedis.xcodeproj */,
+				B6DC3AAD1CC565B400337B07 /* SwiftRedis.xcodeproj */,
 				B60925251C94207E0093DBAA /* Sources */,
 				B60925021C941F7E0093DBAA /* SlimaneSessionRedisStore */,
 				B609250E1C941F7E0093DBAA /* SlimaneSessionRedisStoreTests */,
@@ -114,11 +121,11 @@
 			path = ../Sources;
 			sourceTree = "<group>";
 		};
-		B613CEAB1C94651C00F7122E /* Products */ = {
+		B6DC3AAE1CC565B400337B07 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				B613CEB01C94651C00F7122E /* SwiftRedis.framework */,
-				B613CEB21C94651C00F7122E /* SwiftRedisTests.xctest */,
+				B6DC3AB31CC565B500337B07 /* SwiftRedis.framework */,
+				B6DC3AB51CC565B500337B07 /* SwiftRedisTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -149,6 +156,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				B6DC3AB71CC565B800337B07 /* PBXTargetDependency */,
 			);
 			name = SlimaneSessionRedisStore;
 			productName = SlimaneSessionRedisStore;
@@ -203,8 +211,8 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
-					ProductGroup = B613CEAB1C94651C00F7122E /* Products */;
-					ProjectRef = B613CEAA1C94651C00F7122E /* SwiftRedis.xcodeproj */;
+					ProductGroup = B6DC3AAE1CC565B400337B07 /* Products */;
+					ProjectRef = B6DC3AAD1CC565B400337B07 /* SwiftRedis.xcodeproj */;
 				},
 			);
 			projectRoot = "";
@@ -216,18 +224,18 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		B613CEB01C94651C00F7122E /* SwiftRedis.framework */ = {
+		B6DC3AB31CC565B500337B07 /* SwiftRedis.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
 			path = SwiftRedis.framework;
-			remoteRef = B613CEAF1C94651C00F7122E /* PBXContainerItemProxy */;
+			remoteRef = B6DC3AB21CC565B500337B07 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		B613CEB21C94651C00F7122E /* SwiftRedisTests.xctest */ = {
+		B6DC3AB51CC565B500337B07 /* SwiftRedisTests.xctest */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.cfbundle;
 			path = SwiftRedisTests.xctest;
-			remoteRef = B613CEB11C94651C00F7122E /* PBXContainerItemProxy */;
+			remoteRef = B6DC3AB41CC565B500337B07 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -273,6 +281,11 @@
 			isa = PBXTargetDependency;
 			target = B60924FF1C941F7E0093DBAA /* SlimaneSessionRedisStore */;
 			targetProxy = B609250C1C941F7E0093DBAA /* PBXContainerItemProxy */;
+		};
+		B6DC3AB71CC565B800337B07 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = SwiftRedis;
+			targetProxy = B6DC3AB61CC565B800337B07 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 

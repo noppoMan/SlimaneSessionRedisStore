@@ -6,15 +6,12 @@
 //  Copyright © 2016 MikeTOKYO. All rights reserved.
 //
 
-import Suv
-import SlimaneMiddleware
-import SwiftRedis
-import Core
-import Foundation
+@_exported import SwiftRedis
+@_exported import SessionMiddleware
 
 public class RedisStore: SessionStoreType {
 
-    private let con: Connection
+    private let con: SwiftRedis.Connection
     
     private let serializer: SerializerType
     
@@ -24,11 +21,11 @@ public class RedisStore: SessionStoreType {
     }
     
     // TODO need to change completion to GenericResult<[String : Any?]> -> ()
-    public func reload(sessionId: String, completion: (SessionResult<[String: AnyObject?]>) -> Void) {
-        SwiftRedis.command(self.con, command: .GET(sessionId)) { [unowned self] result in
+    public func load(sessionId: String, completion: (SessionResult<[String: AnyObject?]>) -> Void) {
+        Redis.command(self.con, command: .GET(sessionId)) { [unowned self] result in
             if case .Success(let repl) = result {
                 if repl == "" {
-                    completion(.None)
+                    completion(.Data([:]))
                 } else {
                     do {
                         let dict = try self.serializer.deserialize(repl)
@@ -60,7 +57,7 @@ public class RedisStore: SessionStoreType {
             }
             
             // Need to handle error
-            SwiftRedis.command(con, command: command)
+            Redis.command(con, command: command)
             completion()
         } catch {
             return completion()
@@ -68,6 +65,6 @@ public class RedisStore: SessionStoreType {
     }
     
     public func destroy(sessionId: String) {
-        SwiftRedis.command(con, command: .DEL([sessionId]))
+        Redis.command(con, command: .DEL([sessionId]))
     }
 }

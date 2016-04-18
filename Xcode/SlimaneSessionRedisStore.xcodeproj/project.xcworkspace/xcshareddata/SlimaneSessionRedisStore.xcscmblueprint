@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "B0AD53A1463A7C472DAB4CC1D0588C0EE241D96E",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "B0AD53A1463A7C472DAB4CC1D0588C0EE241D96E" : 0,
+    "B5E3B5A97BA61B4FE87439EBE9E30CBA96F0B6AF" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "DD288315-53AF-4235-97D1-160D1A0157C6",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "B0AD53A1463A7C472DAB4CC1D0588C0EE241D96E" : "SessionRedisStore\/",
+    "B5E3B5A97BA61B4FE87439EBE9E30CBA96F0B6AF" : "swift-redis\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "SlimaneSessionRedisStore",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "Xcode\/SlimaneSessionRedisStore.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "github.com:slimane-swift\/SessionRedisStore.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "B0AD53A1463A7C472DAB4CC1D0588C0EE241D96E"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "github.com:noppoMan\/swift-redis.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "B5E3B5A97BA61B4FE87439EBE9E30CBA96F0B6AF"
+    }
+  ]
+}
