@@ -20,7 +20,6 @@ let sesConfig = SessionConfig(
 
 app.use(SessionMiddleware(conf: sesConfig))
 ```
-
 ## Package.json
 ```swift
 import PackageDescription
@@ -28,7 +27,7 @@ import PackageDescription
 let package = Package(
     name: "SessionRedisStore",
     dependencies: [
-        .Package(url: "https://github.com/slimane-swift/SessionRedisStore.git", majorVersion: 0, minor: 2)
+        .Package(url: "https://github.com/slimane-swift/SessionRedisStore.git", majorVersion: 0, minor: 1)
     ]
 )
 ```
