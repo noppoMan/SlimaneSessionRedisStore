@@ -21,7 +21,7 @@ public class RedisStore: SessionStoreType {
     }
 
     // TODO need to change completion to GenericResult<[String : Any?]> -> ()
-    public func load(sessionId: String, completion: (SessionResult<[String: AnyObject]>) -> Void) {
+    public func load(_ sessionId: String, completion: (SessionResult<[String: AnyObject]>) -> Void) {
         Redis.command(self.con, command: .GET(sessionId)) { [unowned self] result in
             if case .Success(let repl) = result {
                 if repl == "" {
@@ -38,7 +38,7 @@ public class RedisStore: SessionStoreType {
         }
     }
 
-    public func store(sessionId: String, values: [String: AnyObject], expires: Int?, completion: () -> Void) {
+    public func store(_ sessionId: String, values: [String: AnyObject], expires: Int?, completion: () -> Void) {
         do {
             let sesValue = try self.serializer.serialize(values)
 
@@ -57,7 +57,7 @@ public class RedisStore: SessionStoreType {
         }
     }
 
-    public func destroy(sessionId: String) {
+    public func destroy(_ sessionId: String) {
         Redis.command(con, command: .DEL([sessionId]))
     }
 }

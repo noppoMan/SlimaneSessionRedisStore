@@ -1,8 +1,6 @@
 .DS_Store
 dump.rdb
 .DS_Store
-Xcode/SlimaneSessionRedisStore.xcodeproj/xcuserdata
-Xcode/SlimaneSessionRedisStore.xcodeproj/SlimaneSessionRedisStore.xcworkspace/xcuserdata/
-Xcode/SlimaneSessionRedisStore.xcodeproj/project.xcworkspace/xcuserdata
 Packages
 .build
+Xcode
