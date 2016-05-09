@@ -24,15 +24,15 @@ public class RedisStore: SessionStoreType {
     public func load(_ sessionId: String, completion: (SessionResult<[String: AnyObject]>) -> Void) {
         Redis.command(self.con, command: .GET(sessionId)) { [unowned self] result in
             if case .Success(let repl) = result {
-                if repl == "" {
-                    completion(.Data([:]))
-                } else {
-                    do {
-                        let dict = try self.serializer.deserialize(repl)
-                        completion(.Data(dict))
-                    } catch {
-                        completion(.Error(error))
-                    }
+                guard let repl = repl as? String where repl != "" else {
+                    return completion(.Data([:]))
+                }
+                
+                do {
+                    let dict = try self.serializer.deserialize(repl)
+                    completion(.Data(dict))
+                } catch {
+                    completion(.Error(error))
                 }
             }
         }
