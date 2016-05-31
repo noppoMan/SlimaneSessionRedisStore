@@ -15,13 +15,13 @@ public class RedisStore: SessionStoreType {
 
     private let serializer: SerializerType
 
-    public init(loop: Loop, host: String = "127.0.0.1", port: UInt = 6379, expires: Int = (60 * 30), serializer: SerializerType = JsonSerializer()) throws {
+    public init(loop: Loop, host: String = "127.0.0.1", port: UInt = 6379, expires: Int = (60 * 30), serializer: SerializerType = DefaultSerializer()) throws {
         self.con = try Connection(loop: loop.loopPtr, host: host, port: port)
         self.serializer = serializer
     }
 
     // TODO need to change completion to GenericResult<[String : Any?]> -> ()
-    public func load(_ sessionId: String, completion: (SessionResult<[String: AnyObject]>) -> Void) {
+    public func load(_ sessionId: String, completion: (SessionResult<[String: String]>) -> Void) {
         Redis.command(self.con, command: .GET(sessionId)) { [unowned self] result in
             if case .Success(let repl) = result {
                 guard let repl = repl as? String where repl != "" else {
@@ -38,7 +38,7 @@ public class RedisStore: SessionStoreType {
         }
     }
 
-    public func store(_ sessionId: String, values: [String: AnyObject], expires: Int?, completion: () -> Void) {
+    public func store(_ sessionId: String, values: [String: String], expires: Int?, completion: () -> Void) {
         do {
             let sesValue = try self.serializer.serialize(values)
 
