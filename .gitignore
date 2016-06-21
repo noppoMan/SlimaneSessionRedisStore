@@ -4,3 +4,4 @@ dump.rdb
 Packages
 .build
 Xcode
+*.xcodeproj

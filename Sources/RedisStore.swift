@@ -25,14 +25,14 @@ public class RedisStore: SessionStoreType {
         Redis.command(self.con, command: .GET(sessionId)) { [unowned self] result in
             if case .Success(let repl) = result {
                 guard let repl = repl as? String where repl != "" else {
-                    return completion(.Data([:]))
+                    return completion(.data([:]))
                 }
                 
                 do {
                     let dict = try self.serializer.deserialize(repl)
-                    completion(.Data(dict))
+                    completion(.data(dict))
                 } catch {
-                    completion(.Error(error))
+                    completion(.error(error))
                 }
             }
         }
