@@ -20,31 +20,27 @@ public class RedisStore: SessionStoreType {
         self.serializer = serializer
     }
 
-    // TODO need to change completion to GenericResult<[String : Any?]> -> ()
-    public func load(_ sessionId: String, completion: (SessionResult<[String: String]>) -> Void) {
+    public func load(_ sessionId: String, completion: @escaping ((Void) throws -> [String: String]) -> Void) {
         Redis.command(self.con, command: .GET(sessionId)) { [unowned self] result in
-            if case .Success(let repl) = result {
-                guard let repl = repl as? String where repl != "" else {
-                    return completion(.data([:]))
+            if case .success(let repl) = result {
+                guard let repl = repl as? String , !repl.isEmpty else {
+                    return completion { [:] }
                 }
                 
-                do {
-                    let dict = try self.serializer.deserialize(repl)
-                    completion(.data(dict))
-                } catch {
-                    completion(.error(error))
+                completion {
+                    try self.serializer.deserialize(repl)
                 }
             }
         }
     }
 
-    public func store(_ sessionId: String, values: [String: String], expires: Int?, completion: () -> Void) {
+    public func store(_ sessionId: String, values: [String: String], expiration: Int?, completion: @escaping () -> Void) {
         do {
             let sesValue = try self.serializer.serialize(values)
 
             let command: Commands
-            if let expires = expires {
-                command = .SETEX(sessionId, expires, sesValue)
+            if let expiration = expiration {
+                command = .SETEX(sessionId, expiration, sesValue)
             } else {
                 command = .SET(sessionId, sesValue)
             }
